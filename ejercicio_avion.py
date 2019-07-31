@@ -20,15 +20,17 @@ class avion():
                 break
         print("Se deben seguir los preparativos para despegar, primer paso bajar los flaps")
         time.sleep(2.0)
-        print("Comenzar a bajar los flaps a -3")
-        time.sleep(1.0)
-        time.sleep(0.45)
+        print("Controlador: piloto debe bajar los flaps a -3")
+        time.sleep(1.50)
         self.flaps-=3
-        time.sleep(1.0)
-        print("los flags estan en posición: ",self.flaps)
+        time.sleep(1.50)
+        print("Piloto: los flags estan en posición: ",self.flaps)
+        time.sleep(1.50)
         if (self.flaps== -3):
-            print("preparese para para acelerar y despegar ")
+            print("Controlador:preparese para para acelerar y despegar ")
             time.sleep(2.0)
+            print("Piloto: Confirmado, gracias controlador ")
+            time.sleep(1.50)
         while(self.vel< 180 and self.vel>=0):
             self.vel+=20
             time.sleep(0.45)
@@ -37,7 +39,7 @@ class avion():
         print("Ya esta en el aire ")
     def pilo(self):
         while (self.pil=="no" or "No" or "NO"):
-            self.pil=input("Piloto, ¿Desea subir los flaps a 0, y subir el tren de aterrizaje? si o no :  ")
+            self.pil=input("Controlador: Piloto ¿Desea subir los flaps a 0, y subir el tren de aterrizaje? si o no :  ")
             if (self.pil=="no"):
                 print("¡cuidado esta aumentando la resistencia, su rendimiento de vuelo es bajo, corrija para mejorar su vuelo!")
             elif(self.pil=="si"):
