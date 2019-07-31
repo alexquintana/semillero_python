@@ -22,7 +22,9 @@ class avion():
         time.sleep(2.0)
         print("Controlador: piloto debe bajar los flaps a -3")
         time.sleep(1.50)
-        self.flaps-=3
+        for self.flaps in range (0,-4,-1):
+            time.sleep(0.45)
+            print("bajando flaps",self.flaps)
         time.sleep(1.50)
         print("Piloto: los flags estan en posición: ",self.flaps)
         time.sleep(1.50)
@@ -32,19 +34,25 @@ class avion():
             print("Piloto: Confirmado, gracias controlador ")
             time.sleep(1.50)
         while(self.vel< 180 and self.vel>=0):
-            self.vel+=20
+            self.vel+=30
             time.sleep(0.45)
             print("Su velocidad es de: ",self.vel,"Km/h")
         print("Alcanzo la velocidad necesaria: ",self.vel,"Km/h")
         print("Ya esta en el aire ")
     def pilo(self):
-        while (self.pil=="no" or "No" or "NO"):
             self.pil=input("Controlador: Piloto ¿Desea subir los flaps a 0, y subir el tren de aterrizaje? si o no :  ")
-            if (self.pil=="no"):
-                print("¡cuidado esta aumentando la resistencia, su rendimiento de vuelo es bajo, corrija para mejorar su vuelo!")
-            elif(self.pil=="si"):
-                print("¡Perfecto!, Feliz vuelo")
-                break
+            while (self.pil=="no" or "No" or "NO"):
+                if(self.pil=="no"):
+                    print("¡cuidado esta aumentando la resistencia, su rendimiento de vuelo es bajo, corrija para mejorar su vuelo!")
+                    self.pil=input("Controlador: Piloto ¿Desea subir los flaps a 0, y subir el tren de aterrizaje? si o no :  ")
+                    print("¡Usted pierde altitud! ¡falla total del sistema! ¡Va a estrellarse!")
+                    time.sleep(2.0)
+                    print(" las investigaciones indican que el accidente fue un error humano, no hubo sobrevivientes")
+                    break
+                elif(self.pil=="si"):
+                    print("¡Perfecto!, Feliz vuelo")
+                    break
+
 a=avion()
 a.pista()
 a.pilo()
